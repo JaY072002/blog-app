@@ -2,11 +2,28 @@
 
 
     <div class="container mt-4">
-        <h1>
-            <%=heading%>
-        </h1>
-        <p>
-            <%=homeContent%>
-        </p>
+        <div id="blogbeauty">
+            <h1>
+                <%=heading%>
+            </h1>
+
+            <p>Start posting the new exciting blogs..!!&nbsp; &nbsp; &nbsp; ----> &nbsp; &nbsp;<a href="/compose">Add
+                    Blogs</a></p>
+        </div>
+
+        <% postarr.forEach(element=> {%>
+
+            <div class="blogcontainer">
+                <div class="title">
+                    <%=element.posttitle%>
+                </div>
+                <div class="content">
+                    <%=element.postbody%>
+                </div>
+            </div>
+            <%}); %>
+
+
+
     </div>
     <%- include('partials/footer') -%>

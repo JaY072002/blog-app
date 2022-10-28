@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">post error!</h1>
+            <p>You cannot post without without <%=errorelem%> :(</p>
+            <form action="/compose" method="get">
+                <input type="submit" value="back to blog" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

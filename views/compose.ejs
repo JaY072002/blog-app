@@ -1,18 +1,18 @@
 <%- include('partials/header') -%>
 
-    <div class="container">
+    <div class="container mt-4">
         <h1>
             <%=heading%>
         </h1>
         <form action="/compose" method="post">
             <label for="composetitle">Title : </label>
 
-            <input type="text" name="blogtitle" autocomplete="off" id="composetitle" placeholder="blogtitle">
+            <input type="text" name="posttitle" autocomplete="off" id="composetitle" placeholder="blogtitle">
             <label for="blogcontent">Blog : </label>
 
-            <textarea name="blog" cols="30" rows="6" name="blogcontent" placeholder="write something :)"
+            <textarea name="postbody" cols="30" rows="6" name="blogcontent" placeholder="write something :)"
                 id="blogcontent"></textarea>
-            <input type="submit" value="Publish" id="publishbtn">
+            <input type="submit" value="Publish" id="publishbtn" class="btn btn-lg mt-4">
         </form>
     </div>
     <%- include('partials/footer') -%>

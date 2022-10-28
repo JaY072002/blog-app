@@ -7,16 +7,23 @@
 /* navbar  */
 
 .navbar {
-    background-color: 	#5f4c4cc1;
-
+    background-color: #5f4c4cc1;
     display: flex;
-    justify-content: end;
+    justify-content: space-around;
     align-items: center;
+    padding: 20px;
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-family: sans-serif;
+    color: white;
+    /* -webkit-text-stroke: 1px white; */
 }
 
 .navbar ul {
     display: flex;
-    
+
 }
 
 .navbar ul li {
@@ -25,14 +32,15 @@
     padding-top: 8px;
 }
 
-.navbar ul li a{
+.navbar ul li a {
     color: white;
     text-decoration: none;
     font-family: sans-serif;
-    font-weight: bolder;
-    -webkit-text-stroke: 1px white;
-    
+    -webkit-text-stroke: 0.4px white;
+    font-size: 20px;
+
 }
+
 .navbar ul li a:hover {
     cursor: pointer;
     color: black;
@@ -43,7 +51,9 @@
     font-family: sans-serif;
 }
 
-/* compose style  */
+
+
+/* compose write style  */
 
 form {
     width: 80vw;
@@ -52,9 +62,22 @@ form {
     gap: 10px;
 }
 
-#composetitle {
-    width: 100%;
-    padding: 7px;
+#blogbeauty {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-left: 14px;
+}
+
+#blogbeauty p {
+    font-family: sans-serif;
+    font-size: 20px;
+
+}
+
+#blogbeauty p a {
+    color: #5f4c4cc1;
+    text-decoration: none;
 }
 
 textarea {
@@ -63,7 +86,39 @@ textarea {
 }
 
 #publishbtn {
-    padding: 8px;
-    font-size: 16px;
-    -webkit-text-stroke: 1px black;
+    padding-block: 13px;
+
+    background-color: #5f4c4ce8;
+    color: white;
+}
+
+/* compose post style  */
+
+.blogcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 40vh;
+    border: 1px solid grey;
+    /* border-radius: 10px; */
+    padding: 15px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 7px 7px 15px -7px #5f4c4cc1;
+    -moz-box-shadow: 7px 7px 15px -7px #5f4c4cc1;
+    box-shadow: 7px 7px 15px -7px #5f4c4cc1;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 3px ridge #5f4c4cc1;
+
+}
+
+.blogcontainer .title {
+    border-bottom: 1px solid grey;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.blogcontainer .content {
+    padding: 10px;
 }

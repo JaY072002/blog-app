@@ -9,6 +9,10 @@ const aboutStartingContent = `lorem Ipsum is simply dummy text of the printing a
 const contactStartingContent = `lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stas containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu`
 
 
+const posts = [];
+let errorelem = ''; //if user left anything in the blog
+
+
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }))
@@ -16,10 +20,26 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        heading: "Home",
-        homeContent: homeStartingContent
+
+    posts.forEach((elem, index) => {
+        if (elem.posttitle == '' || elem.postbody == '') {
+            if (elem.posttitle == '') {
+                errorelem = 'title'
+            } else {
+                errorelem = 'content'
+            }
+            posts.splice(index, 1)
+            res.redirect('/postfailure')
+        }
+
     })
+
+    res.render('index', {
+        heading: "Blogs",
+        postarr: posts
+    })
+
+
 })
 
 app.get('/about', (req, res) => {
@@ -43,7 +63,19 @@ app.get('/compose', (req, res) => {
 })
 
 app.post('/compose', (req, res) => {
-    console.log(req.body);
+    const post = {
+        posttitle: req.body.posttitle,
+        postbody: req.body.postbody
+    }
+
+    posts.push(post);
+    res.redirect('/')
+})
+
+app.get('/postfailure', (req, res) => {
+    res.render('postfailure', {
+        errorelem
+    })
 })
 
 app.listen(3000, () => {
