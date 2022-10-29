@@ -2,16 +2,14 @@ const express = require('express');
 const ejs = require('ejs');
 const app = express();
 
-const homeStartingContent = `lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen bu`;
 
-const aboutStartingContent = `lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It hu`;
+const aboutStartingContent = `The :first-child selector allows you to target the first element immediately inside another element. It is defined in the CSS Selectors Level 3 spec as a “structural pseudo-class”, meaning it is used to style content based on its relationship with parent and sibling content`;
 
-const contactStartingContent = `lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stas containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu`
+const contactStartingContent = `The :first-child selector allows you to target the first element immediately inside another element. It is defined in the CSS Selectors Level 3 spec as a “structural pseudo-class”, meaning it is used to style content based on its relationship with parent and sibling content`
 
 
 const posts = [];
 let errorelem = ''; //if user left anything in the blog
-
 
 app.set('view engine', 'ejs');
 
@@ -19,7 +17,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
+
 app.get('/', (req, res) => {
+
 
     posts.forEach((elem, index) => {
         if (elem.posttitle == '' || elem.postbody == '') {
@@ -36,7 +36,8 @@ app.get('/', (req, res) => {
 
     res.render('index', {
         heading: "Blogs",
-        postarr: posts
+        postarr: posts,
+
     })
 
 
@@ -76,6 +77,23 @@ app.get('/postfailure', (req, res) => {
     res.render('postfailure', {
         errorelem
     })
+})
+
+
+// express routing parameters
+
+app.get('/:dynamicblog', (req, res) => {
+    console.log(req.params.dynamicblog);
+
+    posts.forEach(element => {
+        if (element.posttitle == req.params.dynamicblog) {
+            res.render('dynamicblog', {
+                element
+            });
+        }
+    });
+
+    console.log(posts);
 })
 
 app.listen(3000, () => {
