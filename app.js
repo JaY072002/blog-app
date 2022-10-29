@@ -11,6 +11,8 @@ const contactStartingContent = `The :first-child selector allows you to target t
 const posts = [];
 let errorelem = ''; //if user left anything in the blog
 
+let time = ''
+
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }))
@@ -64,9 +66,15 @@ app.get('/compose', (req, res) => {
 })
 
 app.post('/compose', (req, res) => {
+
+    let date = new Date();
+
+    time = date.toLocaleTimeString();
+
     const post = {
         posttitle: req.body.posttitle,
-        postbody: req.body.postbody
+        postbody: req.body.postbody,
+        currenttime: time
     }
 
     posts.push(post);
@@ -83,7 +91,7 @@ app.get('/postfailure', (req, res) => {
 // express routing parameters
 
 app.get('/:dynamicblog', (req, res) => {
-    console.log(req.params.dynamicblog);
+
 
     posts.forEach(element => {
         if (element.posttitle == req.params.dynamicblog) {
@@ -93,7 +101,6 @@ app.get('/:dynamicblog', (req, res) => {
         }
     });
 
-    console.log(posts);
 })
 
 app.listen(3000, () => {

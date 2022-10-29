@@ -17,7 +17,13 @@
             <div class="blogcontainer">
                 <div class="title">
                     <%=element.posttitle%>
-                        <button class="btn btn-success  "><a href="/<%=element.posttitle%>">view</a></button>
+                        <div class="blogtime">
+
+                            <button class="btn btn-success  "><a href="/<%=element.posttitle%>">view</a></button>
+                            <span>
+                                <%=element.currenttime%>
+                            </span>
+                        </div>
                 </div>
                 <div class="content">
                     <%=element.postbody%>

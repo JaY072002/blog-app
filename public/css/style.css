@@ -145,6 +145,15 @@ textarea {
     padding: 10px;
 }
 
+.blogtime {
+    display: flex;
+}
+
+.blogtime span {
+    font-size: 16px;
+    align-self: flex-end;
+    padding-inline: 10px;
+}
 
 /* dynamic page style */
 
@@ -159,6 +168,7 @@ textarea {
     max-width: 90vw;
     margin: auto;
     margin-top: 0;
+
 }
 
 #dynamicblog .title {
