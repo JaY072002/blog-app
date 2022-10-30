@@ -6,6 +6,10 @@
 
 }
 
+body {
+    position: relative;
+}
+
 /* navbar  */
 
 .navbar {
@@ -13,7 +17,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 16px;
+    /* position: sticky; */
+    /* top: 0; */
+
 }
 
 .navbar .logo {
@@ -25,19 +32,18 @@
 
 .navbar ul {
     display: flex;
-
+    align-items: center;
 }
 
 .navbar ul li {
     list-style: none;
     margin-right: 20px;
-    padding-top: 8px;
+    padding-top: 16px;
 }
 
 .navbar ul li a {
     color: white;
     text-decoration: none;
-
     -webkit-text-stroke: 0.4px white;
     font-size: 20px;
 
@@ -49,8 +55,17 @@
     transition: 0.5s;
 }
 
+.navlist {
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    justify-content: space-between;
+}
 
-
+.userlogin button {
+    padding: 7px 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
 
 /* compose page style  */
 
@@ -181,4 +196,11 @@ textarea {
 #dynamicblog .content {
     font-size: 30px;
     color: black;
+}
+
+
+/* footer styling  */
+
+#footer {
+    min-height: 100px;
 }
